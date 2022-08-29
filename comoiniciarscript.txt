@@ -1,4 +1,4 @@
-#Para adicionar o script para iniciar com linux
+#Como adicionar o script na inicialização do Linux
 
 #primeiro torne o script executável:
 sudo chmod +x /diretorio/meu-script.sh
