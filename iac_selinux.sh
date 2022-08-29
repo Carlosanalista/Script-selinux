@@ -20,4 +20,5 @@ echo 'Habilitando módulo'
 #Para habilitar o módulo vamos usar esse comando.
 semodule -i zabbix_perm_selinux.pp
 
-
+#Voltando o selinux para modo enforcing
+setenforce 1
