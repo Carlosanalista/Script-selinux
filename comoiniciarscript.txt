@@ -1,0 +1,28 @@
+#Para adicionar o script para iniciar com linux
+
+#primeiro torne o script executável:
+sudo chmod +x /diretorio/meu-script.sh
+
+#Crie um arquivo de unidade do systemd para configurar o meu-script.sh como um serviço:  
+sudo nano /lib/systemd/system/meu-script.service
+
+#Adicione o conteúdo abaixo nesse arquivo de unidade do systemd:
+[Unit]
+Description=Meu script para testes
+Wants=network-online.target
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /diretorio/meu-script.sh
+
+[Install]
+WantedBy=multi-user.target
+
+#Execute o comando abaixo agora e sempre que modificar o arquivo de unidade do systemd:
+sudo systemctl daemon-reload
+
+#Teste o serviço recém configurado:
+sudo systemctl start meu-script
+
+#Habilite o novo serviço para iniciar junto com o sistema: 
+sudo systemctl enable meu-script
